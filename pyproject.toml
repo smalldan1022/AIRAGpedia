@@ -1,0 +1,53 @@
+[project]
+name = "airagpedia"
+version = "0.1.0"
+description = "A semantic RAG pipeline demo for knowledge retrieval and AI-generated answers using Wikipedia data"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "faiss-cpu>=1.13.2",
+    "google-generativeai>=0.8.6",
+    "langchain>=1.2.14",
+    "langchain-text-splitters>=1.1.1",
+    "openai>=2.30.0",
+    "pydantic>=2.12.5",
+    "pypdf>=6.9.2",
+    "python-dotenv>=1.2.2",
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=5.3.0",
+    "tiktoken>=0.12.0",
+    "wikipedia-api>=0.13.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.3.1",
+    "pytest>=9.0.2",
+    "ruff>=0.15.8",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort — 自動排 import 順序
+    "UP",  # pyupgrade — 自動升級舊語法
+]
+ignore = ["E501"]  # line too long 交給 black 處理
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
