@@ -62,7 +62,7 @@ class WikipediaLoader(BaseLoader):
             docs.append(
                 RawDocument(
                     title=page.title,
-                    content=page.text,
+                    text=page.text,
                     category=category,
                     source_type=SourceType.WIKIPEDIA,
                     metadata={
