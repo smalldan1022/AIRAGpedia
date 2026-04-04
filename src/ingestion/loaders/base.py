@@ -17,6 +17,8 @@ class RawDocument(BaseModel):
     category: str
     source_type: SourceType
     metadata: dict
+    # immutable
+    model_config = {"frozen": True}
 
 
 class LoaderConfig(BaseModel):
