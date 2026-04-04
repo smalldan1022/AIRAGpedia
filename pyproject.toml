@@ -19,6 +19,14 @@ dependencies = [
     "wikipedia-api>=0.13.0",
 ]
 
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+
 [dependency-groups]
 dev = [
     "black>=26.3.1",
@@ -35,16 +43,15 @@ select = [
     "E",   # pycodestyle errors
     "F",   # pyflakes
     "I",   # isort — 自動排 import 順序
-    "UP",  # pyupgrade — 自動升級舊語法
 ]
 ignore = ["E501"]  # line too long 交給 black 處理
 
 [tool.black]
 line-length = 88
-target-version = ["py311"]
+target-version = ["py312"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 strict = false
 ignore_missing_imports = true
 
