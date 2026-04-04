@@ -13,7 +13,7 @@ class SourceType(Enum):
 
 class RawDocument(BaseModel):
     title: str
-    content: str
+    text: str
     category: str
     source_type: SourceType
     metadata: dict
