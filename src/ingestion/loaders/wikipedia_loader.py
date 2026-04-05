@@ -2,6 +2,9 @@ import wikipediaapi
 from pydantic import field_validator
 
 from ingestion.loaders.base import BaseLoader, LoaderConfig, RawDocument, SourceType
+from utils.logger import LoggerFactory
+
+logger = LoggerFactory(level="INFO").get_logger(name=__name__)
 
 
 class WikipediaConfig(LoaderConfig):
@@ -72,6 +75,6 @@ class WikipediaLoader(BaseLoader):
                     },
                 )
             )
-            print(f"[{len(docs)}/{self.config.max_pages}] Loaded: {page.title}")
+            logger.info(f"[{len(docs)}/{self.config.max_pages}] Loaded: {page.title}")
 
         return docs
