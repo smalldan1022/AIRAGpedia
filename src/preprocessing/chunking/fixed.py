@@ -6,8 +6,13 @@ from ingestion.loaders.base import RawDocument
 from preprocessing.chunking.base import BaseChunker, ChunkConfig, ChunkedDocument
 
 
+class FixedChunkConfig(ChunkConfig):
+    chunk_size: int = 512
+    chunk_overlap: int = 50
+
+
 class FixedChunker(BaseChunker):
-    def __init__(self, config: ChunkConfig):
+    def __init__(self, config: FixedChunkConfig):
         super().__init__(config)
         self.splitter = TokenTextSplitter(
             chunk_size=self.config.chunk_size,
