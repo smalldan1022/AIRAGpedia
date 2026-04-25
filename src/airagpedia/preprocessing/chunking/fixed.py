@@ -32,16 +32,16 @@ class FixedChunker(BaseChunker):
 
         return [
             ChunkedDocument(
-                vector_id=f"{doc_id}_{idx}",
+                doc_id=doc_id,
+                chunk_id=f"{doc_id}_{idx}",
                 text=chunk,
+                chunk_index=idx,
                 # Approximation, can change into tiktoken
                 token_count=len(chunk.split()),
                 metadata={
                     **doc.metadata,
-                    "doc_id": doc_id,
                     "title": doc.title,
                     "source_type": doc.source_type.value,
-                    "chunk_index": idx,
                     "total_chunks": len(chunks),
                 },
             )
