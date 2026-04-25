@@ -1,4 +1,5 @@
 import os
+import time
 
 from dotenv import load_dotenv
 from google import genai
@@ -39,6 +40,7 @@ class GeminiEmbedder(BaseEmbedder):
                 ),
             )
             all_embeddings.extend([emb.values for emb in results.embeddings])
+            time.sleep(1)
 
         return all_embeddings
 
