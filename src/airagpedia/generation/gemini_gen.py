@@ -9,6 +9,7 @@ from airagpedia.generation.base import (
     BaseGeneratorConfig,
     GenerationResult,
 )
+from airagpedia.generation.templates.base import RAGAnswerSchema
 from airagpedia.utils.logger import LoggerFactory
 
 
@@ -46,6 +47,8 @@ class GeminiGenerator(BaseGenerator):
             config=types.GenerateContentConfig(
                 temperature=self.config.temperature,
                 max_output_tokens=self.config.max_tokens,
+                response_mime_type="application/json",
+                response_schema=RAGAnswerSchema,
             ),
         )
 
