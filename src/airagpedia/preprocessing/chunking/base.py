@@ -11,12 +11,24 @@ class ChunkConfig(BaseModel):
 
 
 class ChunkedDocument(BaseModel):
-    vector_id: str
+    doc_id: str
+    chunk_id: str
     text: str
+    chunk_index: int
     token_count: int
     metadata: dict
 
     model_config = {"frozen": True}
+
+    def to_vector_metadata(self) -> dict:
+        return {
+            # base（url, pageid, category...）
+            **self.metadata,
+            "text": self.text,
+            "doc_id": self.doc_id,
+            "chunk_id": self.chunk_id,
+            "chunk_index": self.chunk_index,
+        }
 
 
 class BaseChunker(ABC):
