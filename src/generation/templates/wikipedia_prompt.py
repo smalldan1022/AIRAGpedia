@@ -39,9 +39,9 @@ Before giving a final answer, think step by step.
 4. Cite source chunk numbers when referencing information
 """
 
-    pydantic_schema = inspect.getsource(RAGAnswerSchema)
+    pydantic_schema: str = inspect.getsource(RAGAnswerSchema)
 
-    example = """
+    example: str = """
 Example 1 (Answerable):
 Question: "What architecture does GPT use?"
 Context: "[Chunk 0]: GPT (Generative Pre-trained Transformer) is a series of large language models developed by OpenAI. [Chunk 1] GPT models use a decoder-only transformer architecture, which was first introduced in the paper 'Attention Is All You Need' in 2017."
