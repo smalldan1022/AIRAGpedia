@@ -11,6 +11,7 @@ dependencies = [
     "langchain>=1.2.14",
     "langchain-text-splitters>=1.1.1",
     "openai>=2.30.0",
+    "pinecone>=8.1.2",
     "pydantic>=2.12.5",
     "pypdf>=6.9.2",
     "python-dotenv>=1.2.2",
@@ -21,7 +22,7 @@ dependencies = [
 ]
 
 [project.scripts]
-airagpedia = "pipelines.rag_pipeline:main"
+airagpedia = "airagpedia.pipelines.rag_pipeline:main"
 
 [build-system]
 requires = ["uv_build>=0.7,<0.8"]
