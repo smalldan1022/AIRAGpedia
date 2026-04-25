@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class BaseGeneratorConfig(BaseModel):
@@ -18,8 +18,8 @@ class GenerationResult(BaseModel):
     input_tokens: int
     output_tokens: int
     output_type: str = "json"
-
-    model_config = {"frozen": True}
+    relevant_chunk_ids: list[int] = Field(default_factory=list)
+    relevant_chunk_texts: list[str] = Field(default_factory=list)
 
 
 class BaseGenerator(ABC):
