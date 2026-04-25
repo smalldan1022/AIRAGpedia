@@ -1,5 +1,5 @@
-from retrieval.base import BaseRetrievalConfig, BaseRetriever
-from vector_store.faiss_store import FAISSVectorStore
+from airagpedia.retrieval.base import BaseRetrievalConfig, BaseRetriever
+from airagpedia.vector_store.faiss_store import FAISSVectorStore
 
 
 class FAISSRetrieverConfig(BaseRetrievalConfig):

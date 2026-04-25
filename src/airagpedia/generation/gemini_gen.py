@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-from generation.base import BaseGenerator, BaseGeneratorConfig, GenerationResult
-from utils.logger import LoggerFactory
+from airagpedia.generation.base import BaseGenerator, BaseGeneratorConfig, GenerationResult
+from airagpedia.utils.logger import LoggerFactory
 
 
 class GeminiConfig(BaseGeneratorConfig):

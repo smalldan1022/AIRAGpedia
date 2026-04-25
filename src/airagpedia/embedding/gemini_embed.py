@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-from embedding.base import BaseEmbedder, EmbeddingConfig
+from airagpedia.embedding.base import BaseEmbedder, EmbeddingConfig
 
 
 class GeminiEmbedder(BaseEmbedder):

@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 from pydantic import BaseModel
 
-from ingestion.loaders.base import RawDocument
+from airagpedia.ingestion.loaders.base import RawDocument
 
 
 class ChunkConfig(BaseModel):

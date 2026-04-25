@@ -4,7 +4,7 @@ from pathlib import Path
 import faiss
 import numpy as np
 
-from vector_store.base import BaseVectorStore, BaseVectorStoreConfig
+from airagpedia.vector_store.base import BaseVectorStore, BaseVectorStoreConfig
 
 
 class FAISSConfig(BaseVectorStoreConfig):

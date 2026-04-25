@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 from pydantic import BaseModel
 
-from vector_store.base import BaseVectorStore
+from airagpedia.vector_store.base import BaseVectorStore
 
 
 class BaseRetrievalConfig(BaseModel):

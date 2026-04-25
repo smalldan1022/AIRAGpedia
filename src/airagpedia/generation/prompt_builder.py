@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from generation.templates.wikipedia_prompt import WikipediaPrompt
+from airagpedia.generation.templates.wikipedia_prompt import WikipediaPrompt
 
 
 class BasePromptBuilder(ABC):

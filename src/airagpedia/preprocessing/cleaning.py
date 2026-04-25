@@ -1,6 +1,6 @@
 import re
 from abc import ABC, abstractmethod
-from ingestion.loaders.base import RawDocument
+from airagpedia.ingestion.loaders.base import RawDocument
 
 
 class BaseCleaner(ABC):

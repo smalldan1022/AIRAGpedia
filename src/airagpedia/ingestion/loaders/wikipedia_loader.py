@@ -1,8 +1,8 @@
 import wikipediaapi
 from pydantic import field_validator
 
-from ingestion.loaders.base import BaseLoader, LoaderConfig, RawDocument, SourceType
-from utils.logger import LoggerFactory
+from airagpedia.ingestion.loaders.base import BaseLoader, LoaderConfig, RawDocument, SourceType
+from airagpedia.utils.logger import LoggerFactory
 
 logger = LoggerFactory(level="INFO").get_logger(name=__name__)
 

@@ -2,8 +2,8 @@ import uuid
 
 from langchain_text_splitters import TokenTextSplitter
 
-from ingestion.loaders.base import RawDocument
-from preprocessing.chunking.base import BaseChunker, ChunkConfig, ChunkedDocument
+from airagpedia.ingestion.loaders.base import RawDocument
+from airagpedia.preprocessing.chunking.base import BaseChunker, ChunkConfig, ChunkedDocument
 
 
 class FixedChunkConfig(ChunkConfig):

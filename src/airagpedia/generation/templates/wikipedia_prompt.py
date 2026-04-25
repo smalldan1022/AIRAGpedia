@@ -1,6 +1,6 @@
 import inspect
 
-from generation.templates.base import BasePrompt, RAGAnswerSchema
+from airagpedia.generation.templates.base import BasePrompt, RAGAnswerSchema
 
 
 class WikipediaPrompt(BasePrompt):
