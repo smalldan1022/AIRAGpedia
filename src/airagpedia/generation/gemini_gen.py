@@ -52,7 +52,7 @@ class GeminiGenerator(BaseGenerator):
             ),
         )
 
-        return GenerationResult(
+        return GeminiGenerationResult(
             text=response.text,
             model=self.config.model,
             input_tokens=response.usage_metadata.prompt_token_count,
