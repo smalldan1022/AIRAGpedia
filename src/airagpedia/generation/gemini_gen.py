@@ -4,7 +4,11 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-from airagpedia.generation.base import BaseGenerator, BaseGeneratorConfig, GenerationResult
+from airagpedia.generation.base import (
+    BaseGenerator,
+    BaseGeneratorConfig,
+    GenerationResult,
+)
 from airagpedia.utils.logger import LoggerFactory
 
 
