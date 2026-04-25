@@ -17,7 +17,7 @@ class RAGAnswerSchema(BaseModel):
     confidence: Literal["high", "medium", "low"] = Field(
         description="Confidence level in the answer"
     )
-    relevant_chunks: list[int] = Field(
+    relevant_chunk_ids: list[int] = Field(
         description="List of chunks indices used to derive the answer"
     )
 
