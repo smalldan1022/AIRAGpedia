@@ -11,7 +11,7 @@ class ChunkConfig(BaseModel):
 
 
 class ChunkedDocument(BaseModel):
-    chunk_id: str
+    vector_id: str
     text: str
     token_count: int
     metadata: dict
