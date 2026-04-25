@@ -1,14 +1,18 @@
-import uuid
+import hashlib
 
 from langchain_text_splitters import TokenTextSplitter
 
 from airagpedia.ingestion.loaders.base import RawDocument
-from airagpedia.preprocessing.chunking.base import BaseChunker, ChunkConfig, ChunkedDocument
+from airagpedia.preprocessing.chunking.base import (
+    BaseChunker,
+    ChunkConfig,
+    ChunkedDocument,
+)
 
 
 class FixedChunkConfig(ChunkConfig):
-    chunk_size: int = 512
-    chunk_overlap: int = 50
+    chunk_size: int = 128
+    chunk_overlap: int = 24
 
 
 class FixedChunker(BaseChunker):
@@ -19,16 +23,22 @@ class FixedChunker(BaseChunker):
             chunk_overlap=self.config.chunk_overlap,
         )
 
+    def hash_file(self, document_text: str):
+        return hashlib.md5(document_text.encode()).hexdigest()
+
     def chunk(self, doc: RawDocument) -> ChunkedDocument:
         chunks = self.splitter.split_text(doc.text)
+        doc_id = self.hash_file(doc.text)
+
         return [
             ChunkedDocument(
-                chunk_id=str(uuid.uuid4()),
+                vector_id=f"{doc_id}_{idx}",
                 text=chunk,
                 # Approximation, can change into tiktoken
                 token_count=len(chunk.split()),
                 metadata={
                     **doc.metadata,
+                    "doc_id": doc_id,
                     "title": doc.title,
                     "source_type": doc.source_type.value,
                     "chunk_index": idx,
