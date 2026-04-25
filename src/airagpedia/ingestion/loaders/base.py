@@ -36,3 +36,9 @@ class BaseLoader(ABC):
     def load(self) -> list[RawDocument]:
         """Load documents from a source and return a list of RawDocument."""
         ...
+
+    def load_batch(self, categories: list[str]) -> list[RawDocument]:
+        docs = []
+        for source in categories:
+            docs.extend(self.load(source))
+        return docs

@@ -26,14 +26,21 @@ class GeminiEmbedder(BaseEmbedder):
         return result.embeddings[0].values
 
     def embed_batch(self, texts: list[str]) -> list[list[float]]:
-        results = self.client.models.embed_content(
-            model=self.MODEL,
-            contents=texts,
-            config=types.EmbedContentConfig(
-                output_dimensionality=self.config.output_dimensionality
-            ),
-        )
-        return [emb.values for emb in results.embeddings]
+        BATCH_SIZE = 100
+        all_embeddings = []
+
+        for i in range(0, len(texts), BATCH_SIZE):
+            batch = texts[i : i + BATCH_SIZE]
+            results = self.client.models.embed_content(
+                model=self.MODEL,
+                contents=batch,
+                config=types.EmbedContentConfig(
+                    output_dimensionality=self.config.output_dimensionality
+                ),
+            )
+            all_embeddings.extend([emb.values for emb in results.embeddings])
+
+        return all_embeddings
 
     def setup_config(self) -> None:
         api_key = os.getenv("GEMINI_API_KEY")

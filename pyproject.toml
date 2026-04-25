@@ -5,6 +5,7 @@ description = "A semantic RAG pipeline demo for knowledge retrieval and AI-gener
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "chromadb>=1.5.7",
     "faiss-cpu>=1.13.2",
     "google-genai>=1.70.0",
     "langchain>=1.2.14",
@@ -19,13 +20,12 @@ dependencies = [
     "wikipedia-api>=0.13.0",
 ]
 
+[project.scripts]
+airagpedia = "pipelines.rag_pipeline:main"
+
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools]
-package-dir = { "" = "src" }
-
+requires = ["uv_build>=0.7,<0.8"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
