@@ -43,6 +43,7 @@ class FixedChunker(BaseChunker):
                     "title": doc.title,
                     "source_type": doc.source_type.value,
                     "total_chunks": len(chunks),
+                    "text": chunk,
                 },
             )
             for idx, chunk in enumerate(chunks)
