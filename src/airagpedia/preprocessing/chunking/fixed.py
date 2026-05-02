@@ -1,4 +1,5 @@
 import hashlib
+from datetime import datetime
 
 from langchain_text_splitters import TokenTextSplitter
 
@@ -44,6 +45,7 @@ class FixedChunker(BaseChunker):
                     "source_type": doc.source_type.value,
                     "total_chunks": len(chunks),
                     "text": chunk,
+                    "created_at": datetime.today(),
                 },
             )
             for idx, chunk in enumerate(chunks)
