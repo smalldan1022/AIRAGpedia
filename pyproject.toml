@@ -24,6 +24,9 @@ dependencies = [
 
 [project.scripts]
 airagpedia = "airagpedia.pipelines.rag_pipeline:main"
+airagpedia-ingest = "airagpedia.pipelines.ingestion_pipeline:main"
+airagpedia-query  = "airagpedia.pipelines.query_pipeline:main"
+
 
 [build-system]
 requires = ["uv_build>=0.7,<0.8"]
